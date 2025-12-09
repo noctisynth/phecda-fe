@@ -1,0 +1,25 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0  # 更新到最新版本
+    hooks:
+    -   id: check-yaml
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+    -   id: check-merge-conflict  # 检查合并冲突
+    -   id: check-json  # 检查JSON文件格式
+
+-   repo: local
+    hooks:
+    -   id: lint-staged
+        name: Lint Staged Files
+        entry: npx lint-staged
+        language: node
+        pass_filenames: false
+        stages: [commit]
+
+    -   id: commitlint
+        name: Commitlint
+        entry: npx commitlint --edit
+        language: node
+        pass_filenames: false
+        stages: [commit-msg]
