@@ -1,12 +1,12 @@
 {
-  "name": "phecda-website",
+  "name": "phecda-fe",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "lint": "oxlint .",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -22,12 +22,12 @@
     "@commitlint/cli": "^20.2.0",
     "@commitlint/config-conventional": "^20.2.0",
     "@eslint/js": "^9.39.1",
+    "@j178/prek": "^0.2.21",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react-swc": "^4.2.2",
     "globals": "^16.5.0",
-    "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
     "oxlint": "^1.32.0",
     "prettier": "^3.7.4",

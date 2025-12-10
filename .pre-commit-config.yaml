@@ -1,6 +1,6 @@
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0  # 更新到最新版本
+    rev: v6.0.0  # 更新到最新版本
     hooks:
     -   id: check-yaml
     -   id: end-of-file-fixer
@@ -10,16 +10,17 @@ repos:
 
 -   repo: local
     hooks:
+    -   id: commitlint
+        name: Commitlint
+        entry: npx --no -- commitlint --edit
+        language: node
+        pass_filenames: false
+        stages: [commit-msg]
+        verbose: true
+
     -   id: lint-staged
         name: Lint Staged Files
         entry: npx lint-staged
         language: node
         pass_filenames: false
         stages: [commit]
-
-    -   id: commitlint
-        name: Commitlint
-        entry: npx commitlint --edit
-        language: node
-        pass_filenames: false
-        stages: [commit-msg]
