@@ -1,11 +1,10 @@
 // 路由配置
-import { createBrowserRouter } from 'react-router';
-import { Home } from './page/home';
+import { createBrowserRouter } from "react-router";
+import { Home } from "./page/home";
 
 export const router = createBrowserRouter([
-    {
-        path: '/',
-        element: <Home />
-    }
-])
-
+	{
+		path: "/",
+		element: <Home />,
+	},
+]);

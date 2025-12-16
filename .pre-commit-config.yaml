@@ -1,12 +1,8 @@
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v6.0.0  # 更新到最新版本
+    rev: v6.0.0
     hooks:
-    -   id: check-yaml
-    -   id: end-of-file-fixer
-    -   id: trailing-whitespace
-    -   id: check-merge-conflict  # 检查合并冲突
-    -   id: check-json  # 检查JSON文件格式
+    -   id: check-merge-conflict
 
 -   repo: local
     hooks:
@@ -18,9 +14,9 @@ repos:
         stages: [commit-msg]
         verbose: true
 
-    -   id: lint-staged
-        name: Lint Staged Files
-        entry: npx lint-staged
+    -   id: local-biome-check
+        name: biome check
+        entry: pnpx @biomejs/biome check --write --files-ignore-unknown=true --no-errors-on-unmatched
         language: node
-        pass_filenames: false
-        stages: [commit]
+        types: [text]
+        files: "\\.(jsx?|tsx?|c(js|ts)|m(js|ts)|d\\.(ts|cts|mts)|jsonc?)$"
